@@ -271,6 +271,13 @@ header.menu-expand #logo a{
 header.menu-expand{
   margin-bottom: 200px;
 }
+.logo {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  z-index: 1000; /* makes sure it stays on top */
+}
+
 
 .logo-smaller div#logo {
   width: 150px;
