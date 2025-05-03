@@ -1,202 +1,209 @@
 <!DOCTYPE html>
 <html lang="zxx">
-    <head>
-        <meta charset="utf-8">
-        <title>Seaside Hotel</title>
-        <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="author" content="">
 
-        <!-- CSS Files
+<head>
+    <meta charset="utf-8">
+    <title>Shinora</title>
+    <!-- have to add shinora favicon logo -->
+    <link rel="icon" href="images/icon2.png" type="image/gif" sizes="16x16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <!-- CSS Files
         ================================================== -->
-        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" id="bootstrap">
-        <link rel="stylesheet" href="css/plugins.css" type="text/css">
-        <link rel="stylesheet" href="css/style.css" type="text/css">
-        <link rel="stylesheet" href="css/color.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" id="bootstrap">
+    <link rel="stylesheet" href="css/plugins.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/color.css" type="text/css">
 
-        <!-- supersized -->
-        <link rel='stylesheet' href='js/supersized/css/supersized.css' type='text/css'>
-        <link rel='stylesheet' href='js/supersized/theme/supersized.shutter.css' type='text/css'>
+    <!-- supersized -->
+    <link rel='stylesheet' href='js/supersized/css/supersized.css' type='text/css'>
+    <link rel='stylesheet' href='js/supersized/theme/supersized.shutter.css' type='text/css'>
 
-        <!-- color scheme -->
-        <link rel="stylesheet" href="css/colors/brown.css" type="text/css" id="colors">
-    </head>
+    <!-- color scheme -->
+    <link rel="stylesheet" href="css/colors/blue.css" type="text/css" id="colors">
 
-    <body>
-        
-        <div id="wrapper">
-            <!-- header begin -->
-            <header class="header-fullwidth menu-expand transparent">
-                <div class="container-fluid">
-                    <div class="row-fluid">
-                        <div class="col-md-12">
-                            <!-- logo begin -->
-                            <div id="logo">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/let-it-snow.css" type="text/css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- header begin -->
+        <header class="header-fullwidth menu-expand transparent">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="col-md-12">
+                        <!-- logo begin -->
+                        <div id="logo">
+                            <a href="index-snowy.html">
+                                <!-- have to add shinora logo -->
+                                <img class="logo" src="images/logo4.png" alt="" width="200">
+                            </a>
+                        </div>
+                        <!-- logo close -->
+
+                        <!-- small button begin -->
+                        <div id="mo-button-open" class="mo-bo-s1">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <!-- small button close -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- header close -->
+
+        <!-- menu overlay begin -->
+        <div id="menu-overlay" class="slideDown">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="col-md-12">
+                        <div id="mo-button-close">
+                            <div class="line-1"></div>
+                            <div class="line-2"></div>
+                        </div>
+
+                        <div class="pt80 pb80">
+                            <div class="mo-nav text-center">
                                 <a href="index.html">
-                                    <img class="logo" src="images/logo.png" alt="">
+                                    <img class="logo" src="images/logo4.png" width="200" alt="">
                                 </a>
-                            </div>
-                            <!-- logo close -->
 
-                            <!-- small button begin -->
-                            <div id="mo-button-open" class="mo-bo-s1">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <!-- small button close -->
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- header close -->
+                                <div class="spacer-single"></div>
 
-            <!-- menu overlay begin -->
-            <div id="menu-overlay" class="slideDown">
-                <div class="container-fluid">
-                    <div class="row-fluid">
-                        <div class="col-md-12">
-                            <div id="mo-button-close">
-                                <div class="line-1"></div>
-                                <div class="line-2"></div>
-                            </div>
+                                <!-- mainmenu begin -->
+                                <ul id="mo-menu">
+                                    <li>
+                                        Home
+                                        <ul>
+                                            <!-- <li><a href="index.html">Fullscreen Slider</a></li>
+                                            <li><a href="index-slider-2.html">Fullscreen Slider 2</a></li>
+                                            <li><a href="index-slider-3.html">Fullscreen Slider 3</a></li>
+                                            <li><a href="index-full-page.html">Full Page</a></li>
+                                            <li><a href="index-video-background.html">Fullsreen Video</a></li>
+                                            <li><a href="index-room-slider-1.html">New: Room Slider 1</a></li> -->
+                                            <li><a href="index-snowy.html">New: Slider + Snow</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li>
+                                        Products
+                                        <ul>
+                                            <li><a href="room-2-cols.html">2 Columns</a></li>
+                                            <li><a href="room.html">3 Columns</a></li>
+                                            <li><a href="room-single.html">Room Single</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="booking.html">Booking</a></li>
+                                    <li><a href="offer.html">Offers</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                                <!-- mainmenu close -->
 
-                            <div class="pt80 pb80">
-                                <div class="mo-nav text-center">
-                                    <a href="index.html">
-                                        <img class="logo" src="images/logo.png" alt="">
-                                    </a>
-
-                                    <div class="spacer-single"></div>
-
-                                    <!-- mainmenu begin -->
-                                    <ul id="mo-menu">
-                                        <li>
-                                            Home
-                                            <ul>
-                                                <li><a href="index.html">Fullscreen Slider</a></li>
-                                                <li><a href="index-slider-2.html">Fullscreen Slider 2</a></li>
-                                                <li><a href="index-slider-3.html">Fullscreen Slider 3</a></li>
-                                                <li><a href="index-full-page.html">Full Page</a></li>
-                                                <li><a href="index-video-background.html">Fullsreen Video</a></li>
-                                                <li><a href="index-room-slider-1.html">New: Room Slider 1</a></li>
-                                                <li><a href="index-snowy.html">New: Slider + Snow</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li>
-                                            Rooms
-                                            <ul>
-                                                <li><a href="room-2-cols.html">2 Columns</a></li>
-                                                <li><a href="room.html">3 Columns</a></li>
-                                                <li><a href="room-single.html">Room Single</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="booking.html">Booking</a></li>
-                                        <li><a href="offer.html">Offers</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                    <!-- mainmenu close -->
-
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- menu overlay close -->
+    </div>
+    <!-- menu overlay close -->
 
-        <!-- content begin -->
-        <div id="content" class="no-bottom no-top">
+    <!-- content begin -->
+    <div id="content" class="no-bottom no-top">
 
-            <!-- float text begin -->
-            <div class="float-text">
-                <div class="de_social-icons">
-                    <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                    <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                    <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
-                </div>
-                <span><a href="#">Book Now</a></span>
+        <!-- float text begin -->
+        <div class="float-text">
+            <div class="de_social-icons">
+                <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
             </div>
-            <!-- float text close --> 
+            <span><a href="#">Contact Now</a></span>
+        </div>
+        <!-- float text close -->
 
-            <div class='slider-overlay'></div>
+        <div class="let-it-sparkle"></div>
 
-            <div id="slidecaption"></div>
+        <div class='slider-overlay t3'></div>
 
-            <div class="container">    
+        <div id="slidecaption"></div>
+
+        <div class="container">
             <div id="prevthumb"></div>
-                <div id="nextthumb"></div>
-                
-                <!--Arrow Navigation-->
-                <a id="prevslide" class="load-item"></a>
-                <a id="nextslide" class="load-item"></a>
-                
-            <!--Time Bar-->
-                <div id="progress-back" class="load-item">
-                    <div id="progress-bar"></div>
-                </div>
-                <!--Control Bar-->
-                <div id="controls-wrapper" class="load-item">
-                    <div id="controls">
-                        
-                        <a id="play-button"><span id="pauseplay" class="play"></span></a>
-                    
-                        <!--Slide counter-->
-                        <div id="slidecounter">
-                            <span class="slidenumber"></span> / <span class="totalslides"></span>
-                        </div>
-                        
-                        <!--Navigation-->
-                        <ul id="slide-list"></ul>
-                        
-                    </div>
-                </div>
-                </div>
+            <div id="nextthumb"></div>
 
-            
+            <!--Arrow Navigation-->
+            <a id="prevslide" class="load-item"></a>
+            <a id="nextslide" class="load-item"></a>
+
+            <!--Time Bar-->
+            <div id="progress-back" class="load-item">
+                <div id="progress-bar"></div>
+            </div>
+            <!--Control Bar-->
+            <div id="controls-wrapper" class="load-item">
+                <div id="controls">
+
+                    <a id="play-button"><span id="pauseplay" class="play"></span></a>
+
+                    <!--Slide counter-->
+                    <div id="slidecounter">
+                        <span class="slidenumber"></span> / <span class="totalslides"></span>
+                    </div>
+
+                    <!--Navigation-->
+                    <ul id="slide-list"></ul>
+
+                </div>
+            </div>
         </div>
 
-        <!-- Javascript Files
+
+    </div>
+
+    <!-- Javascript Files
     ================================================== -->
-        <script src="js/plugins.js"></script>
-        <script src="js/designesia.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
 
-        <!-- Supersized -->
-        <script src='js/supersized/js/supersized.3.2.7.js'></script>
-        <script src='js/supersized/theme/supersized.shutter.min.js'></script>
+    <!-- Supersized -->
+    <script src='js/supersized/js/supersized.3.2.7.js'></script>
+    <script src='js/supersized/theme/supersized.shutter.min.js'></script>
 
-        <script>
-            jQuery(function($){
-                                                        
-                    var slides=[];
-                    slides.push({image : 'images/slider/1.jpg', title : "<div class='slider-text'><h2 class='wow fadeInUp'>Relax</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.html'><span>Our Facilities</span></a></div>", thumb : '', url : ''});  
+    <script>
+        jQuery(function ($) {
 
-                    slides.push({image : 'images/slider/2.jpg', title : "<div class='slider-text'><h2 class='wow fadeInUp'>Comfort</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='room-2-cols.html'><span>Choose Room</span></a></div>", thumb : '', url : ''});
-                    
-                    slides.push({image : 'images/slider/3.jpg', title : "<div class='slider-text'><h2 class='wow fadeInUp'>Happy</h2><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.html'><span>Our Facilities</span></a></div>", thumb : '', url : ''}); 
+            var slides = [];
+            slides.push({ image: 'images/slider/s1.jpg', title: "<div class='slider-text'><h2 class='wow fadeInUp'>ELEGANCE</h2><h4 class='wow fadeInUp' data-wow-delay='.8s'>Frameless shower screens that redefine modern bathrooms</h4><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.html'><span>Our Facilities</span></a></div>", thumb: '', url: '' });
+
+            slides.push({ image: 'images/slider/s2.jpg', title: "<div class='slider-text'><h2 class='wow fadeInUp'>SHINE</h2><h4 class='wow fadeInUp' data-wow-delay='.8s'>Custom mirrors and wardrobes tailored to your lifestyle</h4><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='room-2-cols.html'><span>Our Products</span></a></div>", thumb: '', url: '' });
+
+            slides.push({ image: 'images/slider/s3.jpg', title: "<div class='slider-text'><h2 class='wow fadeInUp'>TRUST</h2><h4 class='wow fadeInUp' data-wow-delay='.8s'>Over 5000+ Australian homes transformed with quality and care</h4><a class='btn-line wow fadeInUp' data-wow-delay='.3s' href='about.html'><span>Our Facilities</span></a></div>", thumb: '', url: '' });
 
 
-                $.supersized({
-                    // Functionality
-                    slide_interval      :   5000, // Length between transitions
-                    
-                    transition          :   1, // 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
-                    transition_speed    :   500, // Speed of transition
-                    slide_links         :   'blank',    // Individual links for each slide (Options: false, 'num', 'name', 'blank')
-                    slides              :   slides,
-                    autoplay            :   1,                  
-                    fit_always          :   0,
-                    performance         :   0,
-                    image_protect       :   1        // Disables image dragging and right click with Javascript
-                });
+            $.supersized({
+                // Functionality
+                slide_interval: 5000, // Length between transitions
 
-                jQuery("#pauseplay").toggle(
+                transition: 1, // 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+                transition_speed: 500, // Speed of transition
+                slide_links: 'blank',    // Individual links for each slide (Options: false, 'num', 'name', 'blank')
+                slides: slides,
+                autoplay: 1,
+                fit_always: 0,
+                performance: 0,
+                image_protect: 1        // Disables image dragging and right click with Javascript
+            });
+
+            jQuery("#pauseplay").toggle(
                 function () {
                     jQuery(this).addClass("pause");
                 },
@@ -213,8 +220,20 @@
                     jQuery(this).stop().fadeTo(150, .5);
                 });
 
-            });
-        </script>
+        });
+    </script>
 
-    </body>
+    <!-- snowy -->
+    <script src="js/let-it-snow.min.js"></script>
+
+    <script>
+        $.letItSnow('.let-it-snow', {
+            stickyFlakes: 'lis-flake--js',
+            makeFlakes: true,
+            sticky: true
+        });
+    </script>
+
+</body>
+
 </html>

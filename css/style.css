@@ -273,10 +273,13 @@ header.menu-expand{
 }
 .logo {
   position: absolute;
-  top: 0px;
-  left: 10px;
-  z-index: 1000; /* makes sure it stays on top */
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
 }
+
 
 
 .logo-smaller div#logo {
@@ -3552,6 +3555,23 @@ footer.light h6,
   font-size: 190px !important;
   z-index: -1;
 }
+
+/* add isini */
+.box-icon .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 15%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  /* padding: 10px; */
+}
+
 
 .box-icon-simple.right {
   margin-right: 70px;
