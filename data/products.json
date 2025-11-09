@@ -1,0 +1,52 @@
+{
+  "shower-screens": [
+    {
+      "id": "frameless",
+      "name": "Frameless Shower",
+      "image": "images/room/2.jpg",
+      "imageAlt": "images/room/2-alt.jpg",
+      "details": {
+        "finish": "Polished Silver",
+        "size": "2000mm / 1850mm"
+      },
+      "description": "Combining modern elegance with structural strength, our frameless shower screens feature minimal metal framing for a sleek, open look."
+    },
+    {
+      "id": "semi-frameless",
+      "name": "Semi-Frameless Shower",
+      "image": "images/room/3.jpg",
+      "imageAlt": "images/room/3-alt.jpg",
+      "details": {
+        "finish": "Brushed Chrome",
+        "size": "1900mm / 1850mm"
+      },
+      "description": "Elegant and durable, our semi-frameless shower screens feature minimal framing for a sleek, modern look."
+    }
+  ],
+  "mirrors": [
+    {
+      "id": "led-mirror",
+      "name": "LED Bathroom Mirror",
+      "image": "images/room/4.jpg",
+      "imageAlt": "images/room/4-alt.jpg",
+      "details": {
+        "finish": "Silver",
+        "size": "900mm x 600mm"
+      },
+      "description": "A sleek LED mirror offering clear reflection and ambient backlight for your bathroom."
+    }
+  ],
+  "wardrobes": [
+    {
+      "id": "sliding-door",
+      "name": "Sliding Door Wardrobe",
+      "image": "images/room/5.jpg",
+      "imageAlt": "images/room/5-alt.jpg",
+      "details": {
+        "finish": "Matte White",
+        "size": "Custom sizes available"
+      },
+      "description": "Modern sliding door wardrobe designed for elegance and maximum storage efficiency."
+    }
+  ]
+}
