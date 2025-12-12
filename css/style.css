@@ -1857,6 +1857,166 @@ header.smaller.header-scroll:not(.autoshow) {
   margin-right: 4px;
 } */
 
+/* Product detail tags */
+/* Product detail tags */
+/* FIX: Make product option boxes small and aligned */
+/* --- Modern Card Cleanup --- */
+/* MAIN CARD */
+.modern-card {
+  border-radius: 14px;
+  /* overflow: hidden; */
+  transition: all 0.3s ease;
+  height: 570px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modern-card:hover {
+  transform: translateY(-4px);
+}
+
+.d-image {
+  height: 230px;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.d-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Make text section a flex container */
+.d-text {
+  flex: 1; /* fill remaining card height */
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+}
+
+/* Content grows, button stays at bottom */
+.text-content {
+  flex: 1; /* take remaining space above button */
+}
+
+/* Button always at bottom */
+.d-text .btn-line {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+/* ---------------------------
+   FLEX LAYOUT: COLORS LEFT 
+   SIZE RIGHT
+---------------------------- */
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 0 25px;
+  width: 100%;
+  gap: 20px;
+}
+
+/* Section Titles */
+.details-title {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+  font-size: 16px;
+  display: block;
+}
+
+/* ---------------------------
+   SIZE BOX (Transparent Glass)
+---------------------------- */
+.size-box {
+  font-size: 15px;
+
+  transition: 0.3s ease;
+}
+
+.size-box:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+/* ---------------------------
+   COLOR PALETTE
+---------------------------- */
+.modern-colors {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Color circles */
+.color-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  transition: 0.3s ease;
+}
+
+/* Hover scale animation */
+.color-btn:hover {
+  transform: scale(1.15);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Tooltip on hover */
+.color-btn::after {
+  content: attr(data-color);
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.color-btn:hover::after {
+  opacity: 1;
+  bottom: -38px;
+}
+
+/* Actual color values */
+.polished {
+  background: #c0c0c0;
+}
+.black {
+  background: #000;
+}
+.matte {
+  background: #9e9e9e;
+}
+.gold {
+  background: #d4af37;
+}
+
+/* ---------------------------
+   MOBILE RESPONSIVE
+---------------------------- */
+@media (max-width: 768px) {
+  .details-row {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
 /* ================================================== */
 /* products */
 /* ================================================== */
