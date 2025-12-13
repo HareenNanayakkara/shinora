@@ -2015,6 +2015,17 @@ header.smaller.header-scroll:not(.autoshow) {
     flex-direction: column;
     gap: 18px;
   }
+  .modern-card {
+    height: auto;
+  }
+  .d-text {
+    padding-bottom: 24px;
+  }
+
+  .d-text .btn-line {
+    margin-top: 20px;
+    align-self: flex-start;
+  }
 }
 
 /* ================================================== */

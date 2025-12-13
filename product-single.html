@@ -252,7 +252,7 @@
                                 <!-- KEY FEATURES -->
                                 <div class="col-md-4">
                                     <h3>Key Features</h3>
-                                    <ul class="ul-style-2">
+                                    <!-- <ul class="ul-style-2">
                                         <li>Premium tempered safety glass</li>
                                         <li>Easy-to-clean nano coating</li>
                                         <li>Rust-free hardware</li>
@@ -260,7 +260,8 @@
                                         <li>Built for longevity and stability</li>
                                         <li>Custom sizes available</li>
                                         <li>5-year warranty</li>
-                                    </ul>
+                                    </ul> -->
+                                    <ul class="ul-style-2" id="p-keyfeatures"></ul>
                                 </div>
                             </div>
 
@@ -333,6 +334,11 @@
                     "Colors: Polished Silver, Black, Matte Silver, Gold (Special)",
                     "Hardware: Stainless Steel 304",
                     "Glass Type: Toughened Safety Glass"
+                ],
+                keyfeatures: [
+                    "Durable framed design",
+                    "Easy maintenance",
+                    "Custom sizes available"
                 ]
             },
             "semi-frameless": {
@@ -349,6 +355,11 @@
                     "Colors: Polished Silver, Matte Silver, Black, Gold (Special)",
                     "Hardware: Stainless Steel 304",
                     "Glass Type: Toughened Safety Glass"
+                ],
+                keyfeatures: [
+                    "Modern semi-frameless look",
+                    "Durable hardware",
+                    "Custom sizes available"
                 ]
             },
             "frameless": {
@@ -364,6 +375,11 @@
                     "Colors: Polished Silver, Matte Silver, Black, Gold (Special)",
                     "Hardware: Premium SS304",
                     "Low maintenance design"
+                ],
+                keyfeatures: [
+                    "Sleek frameless design",
+                    "Premium quality glass",
+                    "Custom sizes available"
                 ]
             },
             "corner-access": {
@@ -379,6 +395,11 @@
                     "Colors: Polished Silver",
                     "Durable rollers",
                     "Custom size options"
+                ],
+                keyfeatures: [
+                    "Space-saving corner design",
+                    "Smooth sliding mechanism",
+                    "Custom sizes available"
                 ]
             },
             "panel-rod": {
@@ -394,6 +415,11 @@
                     "Colors: Polished Silver, Black, Matte Silver",
                     "Hardware: Stainless Steel 304",
                     "Easy installation"
+                ],
+                keyfeatures: [
+                    "Elegant panel design",
+                    "Durable hardware",
+                    "Custom sizes available"
                 ]
             },
             "bi-fold": {
@@ -409,6 +435,11 @@
                     "Colors: Polished Silver",
                     "Durable hinges",
                     "Smooth folding mechanism"
+                ],
+                keyfeatures: [
+                    "Compact bi-fold design",
+                    "Durable hardware",
+                    "Custom sizes available"
                 ]
             },
             "polished-edge-mirror": {
@@ -421,6 +452,11 @@
                     "Available Sizes: 300 / 600 / 900 mm",
                     "High-quality reflective glass",
                     "Durable and easy to clean"
+                ],
+                keyfeatures: [
+                    "Sleek polished edge",
+                    "Versatile design",
+                    "Custom sizes available"
                 ]
             },
             "beveled-edge-mirror": {
@@ -433,6 +469,11 @@
                     "Available Sizes: 300 / 600 / 900 mm",
                     "High-quality reflective glass",
                     "Stylish beveled edge"
+                ],
+                keyfeatures: [
+                    "Elegant beveled design",
+                    "Durable and easy to clean",
+                    "Custom sizes available"
                 ]
             },
             "oval-mirror": {
@@ -445,6 +486,11 @@
                     "Available Sizes: Custom",
                     "High-quality glass",
                     "Easy to mount"
+                ],
+                keyfeatures: [
+                    "Unique oval shape",
+                    "Sleek modern design",
+                    "Custom sizes available"
                 ]
             },
             "framed-mirror": {
@@ -457,7 +503,8 @@
                     "Available Sizes: 300 / 600 / 900 mm",
                     "Durable frame",
                     "Elegant finish"
-                ]
+                ],
+
             },
             "smart-mirror": {
                 title: "Smart Mirrors",
@@ -470,6 +517,11 @@
                     "LED lighting integrated",
                     "Touch control features",
                     "Optional smart functions"
+                ],
+                keyfeatures: [
+                    "Integrated LED lighting",
+                    "Touch control panel",
+                    "Custom sizes available"
                 ]
             },
             "board-robe-door": {
@@ -482,6 +534,11 @@
                     "Colors: Silver / Black / White",
                     "Custom sizes available",
                     "Durable material"
+                ],
+                keyfeatures: [
+                    "Sturdy board construction",
+                    "Modern aesthetic",
+                    "Custom sizes available"
                 ]
             },
             "framed-glass-robe-door": {
@@ -494,6 +551,11 @@
                     "Custom sizes",
                     "Tempered glass",
                     "Elegant frame finish"
+                ],
+                keyfeatures: [
+                    "Durable framed design",
+                    "Premium quality glass",
+                    "Custom sizes available"
                 ]
             },
             "frameless-glass-robe-door": {
@@ -506,6 +568,11 @@
                     "Custom sizes",
                     "Tempered glass",
                     "Minimalist style"
+                ],
+                keyfeatures: [
+                    "Sleek frameless design",
+                    "High-quality glass",
+                    "Custom sizes available"
                 ]
             }
         };
@@ -525,7 +592,10 @@
         document.getElementById("p-specs").innerHTML = product.specs
             .map(item => `<li>${item}</li>`)
             .join("");
-
+        // Insert Key Features
+        document.getElementById("p-keyfeatures").innerHTML = product.keyfeatures
+            .map(item => `<li>${item}</li>`)
+            .join("");
         // Insert Carousel Images
         document.getElementById("p-carousel").innerHTML = product.images
             .map(img => `
