@@ -2006,7 +2006,9 @@ header.smaller.header-scroll:not(.autoshow) {
 .gold {
   background: #d4af37;
 }
-
+.white {
+  background: #ffffff;
+}
 /* ---------------------------
    MOBILE RESPONSIVE
 ---------------------------- */
@@ -6129,6 +6131,19 @@ span.overlay {
 
 .picframe:hover img {
   transform: scale(1.1);
+}
+/*single product page images css*/
+#carousel-rooms .picframe {
+  width: 250px;
+  height: 320px;
+  overflow: hidden;
+}
+
+#carousel-rooms .picframe img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .s2 .overlay-v,
