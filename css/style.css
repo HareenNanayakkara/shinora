@@ -1876,7 +1876,7 @@ header.smaller.header-scroll:not(.autoshow) {
 }
 
 .d-image {
-  height: 230px;
+  height: 250px;
   width: 100%;
   overflow: hidden;
   flex-shrink: 0;
