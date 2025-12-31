@@ -58,7 +58,7 @@
                             <div></div>
                             <div></div>
                         </div>
-                        <!-- small button close -->
+
                     </div>
                 </div>
             </div>
@@ -97,9 +97,9 @@
                                     </li>
                                     <!-- <li><a href="booking.html">Booking</a></li> -->
                                     <li><a href="offer.html">Offers</a></li>
-                                    <li><a href="blog.html">Testimonials</a></li>
+                                    <li><a href="testimonials.html">Testimonials</a></li>
                                     <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="/contact">Contact</a></li>
                                 </ul>
                                 <!-- mainmenu close -->
 
@@ -191,14 +191,14 @@
                 // Functionality
                 slide_interval: 5000, // Length between transitions
 
-                transition: 1, // 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
-                transition_speed: 500, // Speed of transition
-                slide_links: 'blank',    // Individual links for each slide (Options: false, 'num', 'name', 'blank')
+                transition: 1,
+                transition_speed: 500,
+                slide_links: 'blank',
                 slides: slides,
                 autoplay: 1,
                 fit_always: 0,
                 performance: 0,
-                image_protect: 1        // Disables image dragging and right click with Javascript
+                image_protect: 1
             });
 
             jQuery("#pauseplay").toggle(

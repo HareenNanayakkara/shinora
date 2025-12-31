@@ -50,7 +50,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
-
 @import url("../fonts/font-awesome/css/font-awesome.css");
 @import url("../fonts/elegant_font/HTML_CSS/style.css");
 @import url("../fonts/et-line-font/style.css");
@@ -408,6 +407,7 @@ header.smaller:not(.header-bottom).header-light {
   text-transform: uppercase;
   letter-spacing: 5px;
 }
+
 #subheader {
   -webkit-background-size: 100% auto !important;
   -moz-background-size: 100% auto !important;
@@ -1983,6 +1983,11 @@ header.smaller.header-scroll:not(.autoshow) {
   .d-text .btn-line {
     margin-top: 20px;
     align-self: flex-start;
+  }
+}
+@media screen and (max-width: 480px) {
+  #subheader h1 {
+    font-size: 30px; /* smaller on phones */
   }
 }
 
