@@ -44,6 +44,13 @@
 @import url(https://fonts.googleapis.com/css?family=Heebo:300,300i,400,400i,600,600i,700,700i,800,800i);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,600,600i,700,700i,800,800i);
 @import url(https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield);
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+
 @import url("../fonts/font-awesome/css/font-awesome.css");
 @import url("../fonts/elegant_font/HTML_CSS/style.css");
 @import url("../fonts/et-line-font/style.css");
@@ -1808,58 +1815,7 @@ header.smaller.header-scroll:not(.autoshow) {
 }
 
 /* Optional: Change color on hover */
-/* .card-image-1.mod-b:hover .testimonial-rating .stars i {
-  color: #ffb300;
-} */
 
-/* .card-visual {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-.card-visual img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.d-text-blog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  padding: 30px;
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.card-visual:hover .d-text-blog {
-  opacity: 1;
-}
-
-.d-inner {
-  overflow: visible;
-}
-
-.testimonial-rating .stars {
-  display: inline-block;
-  white-space: nowrap;
-  font-size: 20px;
-  color: #ffc107;
-}
-
-.testimonial-rating .stars i {
-  margin-right: 4px;
-} */
-
-/* Product detail tags */
-/* Product detail tags */
-/* FIX: Make product option boxes small and aligned */
 /* --- Modern Card Cleanup --- */
 /* MAIN CARD */
 .modern-card {
@@ -9487,7 +9443,7 @@ header.header-mobile.height-auto {
 
 #slidecaption h4.s2,
 #subheader h4 {
-  font-family: "Mrs Saint Delafield";
+  font-family: "Satisfy", cursive;
   width: 100%;
   font-size: 105px;
   text-align: center;
@@ -9496,13 +9452,13 @@ header.header-mobile.height-auto {
   letter-spacing: 0;
   text-transform: none;
   line-height: 0.75em;
-  font-weight: 300;
+  font-weight: 600;
   position: relative;
   z-index: 1;
 }
 
 #subheader h4 {
-  font-size: 72px;
+  font-size: 50px;
 }
 
 #slidecaption h2 {
