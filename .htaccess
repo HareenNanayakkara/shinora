@@ -9,24 +9,28 @@
 @REM RewriteCond %{REQUEST_FILENAME}.html -f
 @REM RewriteRule ^(.+)$ $1.html [L]
 
-# Enable rewrite engine
 RewriteEngine On
 
-# ---------------------------------------------
-# 1. Redirect /index.html to /
-# ---------------------------------------------
+# -------------------------------
+# Clean product URLs
+# /products/slug
+# -------------------------------
+RewriteRule ^products/([a-zA-Z0-9\-]+)$ /product-single.html?id=$1 [L,QSA]
+
+# -------------------------------
+# Hide index.html
+# -------------------------------
 RewriteCond %{THE_REQUEST} /index\.html [NC]
 RewriteRule ^index\.html$ / [R=301,L]
 
-# ---------------------------------------------
-# 2. Redirect /something.html to /something
-# ---------------------------------------------
+# -------------------------------
+# Hide .html from normal pages
+# -------------------------------
 RewriteCond %{THE_REQUEST} \s/([^.]+)\.html [NC]
 RewriteRule ^ %1 [R=301,L]
 
-# ---------------------------------------------
-# 3. Internally serve .html files
-# ---------------------------------------------
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+)$ $1.html [L]
+
+
