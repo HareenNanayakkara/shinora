@@ -34,7 +34,7 @@
             <a href="https://www.instagram.com/shinora_australia?igsh=MWd0cWtibzR6ems2YQ==" target="_blank"><i
                     class="fa-brands fa-instagram fa-lg"></i></a>
         </div>
-        <span><a href="contact.html">Contact Now</a></span>
+        <span><a href="/contact">Contact Now</a></span>
     </div>
     <!-- float text close -->
 
@@ -46,7 +46,7 @@
                     <div class="col-md-12">
                         <!-- logo begin -->
                         <div id="logo">
-                            <a href="index.html">
+                            <a href="/">
                                 <img class="logo" src="images/logo4.png" alt="" width="200">
                             </a>
                         </div>
@@ -95,7 +95,7 @@
                                             <li><a href="/robedoors">Robe Doors</a></li>
                                         </ul>
                                     </li>
-                                    <!-- <li><a href="booking.html">Booking</a></li> -->
+
                                     <li><a href="/offer">Offers</a></li>
                                     <li><a href="/testimonials">Testimonials</a></li>
                                     <li><a href="/gallery">Gallery</a></li>
@@ -154,7 +154,7 @@
                                         </div>
                                         <div class="de-flex-col"><img src="images/ui/view.svg" alt=""> Inline / Corner /
                                             Return</div>
-                                        <div class="de-flex-col"><a href="contact.html" class="btn-main"><span>Get a
+                                        <div class="de-flex-col"><a href="/contact" class="btn-main"><span>Get a
                                                     Quote</span></a></div>
                                     </div>
                                 </div>
@@ -613,6 +613,10 @@
         document.getElementById("p-keyfeatures").innerHTML = product.keyfeatures
             .map(item => `<li>${item}</li>`)
             .join("");
+
+        if (!productID || !products[productID]) {
+            window.location.href = "/404";
+        }
         // Insert Carousel Images
 
         const carousel = $("#carousel-rooms");
