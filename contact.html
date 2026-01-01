@@ -138,18 +138,17 @@
                                         <div class="col-lg-6">
                                             <h3>Shinora</h3>
                                             <address>
-                                                <span><strong>Address:</strong></span>
                                                 <span><strong>Phone:</strong>+61 466 349 330</span>
                                                 <span><strong>Fax:</strong>+61 466 349 330</span>
                                                 <span><strong>Email:</strong><a
-                                                        href="mailto:contact@example.com">shinoraaustralia@gmail.com</a></span>
+                                                        href="mailto:contact@example.com">info@shinora.com.au</a></span>
                                             </address>
                                         </div>
                                     </div>
 
                                     <div class="spacer-single"></div>
 
-                                    <form name="contactForm" id='contact_form' method="post">
+                                    <form name="contactForm" id='contact_form'>
                                         <div class="row">
                                             <div class="col-md-12 mb10">
                                                 <h3>Send Us Message</h3>
@@ -184,8 +183,7 @@
                                             </div>
 
                                             <div class="col-md-12">
-                                                <div class="g-recaptcha"
-                                                    data-sitekey="6Lcd9zssAAAAACOh3EpP896r1vxsTK6jJC2dNcHM"></div>
+
                                                 <p id='submit' class="mt20">
                                                     <input type='submit' id='send_message' value='Submit Form'
                                                         class="btn btn-line">
@@ -210,10 +208,6 @@
 
                                 <div class="col-lg-4">
                                     <div class="map-container map-fullwidth">
-                                        <!-- <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.8288619959344!2d144.8927219!3d-37.535531299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6536d7a275825%3A0x706ac85cf245ccc8!2s87%20Madura%20Prom%2C%20Mickleham%20VIC%203064%2C%20Australia!5e0!3m2!1sen!2slk!4v1752205280516!5m2!1sen!2slk"
-                                            width="600" height="450" style="border:0;" allowfullscreen=""
-                                            aria-hidden="false" tabindex="0"></iframe> -->
                                         <iframe
                                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d805170.0496601658!2d145.05313529999998!3d-37.9725665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2slk!4v1767161071701!5m2!1sen!2slk"
                                             width="600" height="450" style="border:0;" allowfullscreen=""
@@ -260,8 +254,46 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/designesia.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+
     <script src="form.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("eld_oBVyZUd0YQ_uC");
+        })();
+    </script>
+
+    <script>
+        document.getElementById("contact_form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById("send_message");
+            submitBtn.value = "Sending...";
+
+
+            emailjs.send("service_h7v06pa", "template_gx1iyze", {
+                from_name: document.getElementById("name").value,
+                reply_to: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                message: document.getElementById("message").value,
+                from_email: "info@shinora.com.au"
+            })
+
+                .then(function () {
+                    submitBtn.value = "Submit Form";
+                    document.getElementById("mail_success").style.display = "block";
+                    document.getElementById("mail_fail").style.display = "none";
+                    document.getElementById("contact_form").reset();
+                })
+                .catch(function (error) {
+                    submitBtn.value = "Submit Form";
+                    document.getElementById("mail_fail").style.display = "block";
+                    document.getElementById("mail_success").style.display = "none";
+                    console.error("EmailJS Error:", error);
+                });
+        });
+    </script>
 
 </body>
 
