@@ -10998,3 +10998,18 @@ canvas {
   max-width: 520px; /* small popup width */
   margin: 40px auto; /* center vertically */
 }
+@media (max-width: 768px) {
+  .video-popup-container {
+    width: 90%; /* fit most of the screen */
+    height: auto; /* adjust height automatically */
+  }
+
+  .video-popup-container video {
+    height: auto; /* scale video proportionally */
+  }
+
+  .mfp-content {
+    max-width: 95%; /* smaller popup on mobile */
+    margin: 20px auto;
+  }
+}
