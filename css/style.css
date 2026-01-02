@@ -4360,19 +4360,23 @@ footer.light h6,
 }
 
 .social-icons i {
-  display: inline-flex; /* ⭐ KEY FIX */
-  align-items: center; /* center vertically */
-  justify-content: center; /* center horizontally */
-
   text-shadow: none;
   color: #fff;
+
   width: 28px;
   height: 28px;
-  font-size: 16px;
-  border-radius: 1px;
+  padding: 8px;
 
-  line-height: 1; /* prevent jump */
-  transition: all 0.3s ease; /* smooth hover */
+  text-align: center;
+  font-size: 16px;
+
+  /* 🔧 FIX */
+  box-sizing: border-box; /* prevents size change */
+  line-height: 12px; /* stabilizes vertical centering */
+
+  border-radius: 1px;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
 }
 
 footer.light .social-icons i {
@@ -4380,8 +4384,9 @@ footer.light .social-icons i {
 }
 
 .social-icons i:hover {
-  background: #fff;
-  color: #111111;
+  /* background: #fff; */
+  /* border-color: #eceff3; */
+  color: #fff;
 }
 
 .social-icons.light i {

@@ -4,11 +4,18 @@
 <head>
     <meta charset="utf-8">
     <title>Shinora</title>
-    <link rel="icon" href="images/icon2.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="/images/icon.png" type="image/png" sizes="96x96">
+    <link rel="apple-touch-icon" href="/images/icon.png">
+
+    <meta name="description"
+        content="Shinora Australia designs and installs premium shower screens, mirrors, and robe doors. Custom glass solutions with modern finishes and expert craftsmanship." />
+
+    <meta name="keywords"
+        content="shower screens Australia, custom shower screens, mirrors Australia, robe doors, sliding robe doors, glass shower enclosures, bathroom glass" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Shinora Australia">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
 
     <!-- CSS Files
         ================================================== -->
@@ -287,9 +294,41 @@
                             </a>
                         </div>
                     </div>
+                    <div class="col-md-4 item">
+                        <div class="de-image-hover">
+                            <a href="images/products/Panel&Rod/IMG_0753.png" class="image-popup">
+                                <span class="dih-title-wrap">
+                                </span>
+                                <span class="dih-overlay"></span>
+                                <img src="images/products/Panel&Rod/IMG_0753.png" class="lazy img-fluid" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item">
+                        <div class="de-image-hover">
+                            <a href="images/products/FramedShowerScreens/IMG_6774.png" class="image-popup">
+                                <span class="dih-title-wrap">
+                                </span>
+                                <span class="dih-overlay"></span>
+                                <img src="images/products/FramedShowerScreens/IMG_6774.png" class="lazy img-fluid"
+                                    alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item">
+                        <div class="de-image-hover">
+                            <a href="images/products/FramedGlassRobeDoors/IMG_5508.pngg" class="image-popup">
+                                <span class="dih-title-wrap">
+                                </span>
+                                <span class="dih-overlay"></span>
+                                <img src="images/products/FramedGlassRobeDoors/IMG_5508.png" class="lazy img-fluid"
+                                    alt="">
+                            </a>
+                        </div>
+                    </div>
+
 
                 </div>
-
             </div>
 
         </section>
@@ -327,6 +366,38 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/designesia.js"></script>
+    <!-- jQuery first -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+    <!-- Magnific Popup JS -->
+    <script src="path-to/jquery.magnific-popup.min.js"></script>
+
+
+    <!-- Your custom script -->
+    <script>
+        $(document).ready(function () {
+            $('.video-popup').magnificPopup({
+                type: 'inline',
+                midClick: true,
+                closeBtnInside: true,
+                callbacks: {
+                    open: function () {
+                        const video = this.content.find('video')[0];
+                        if (video) video.play();
+                    },
+                    close: function () {
+                        const video = this.content.find('video')[0];
+                        if (video) {
+                            video.pause();
+                            video.currentTime = 0;
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>
