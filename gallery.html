@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="css/colors/blue.css" type="text/css" id="colors">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
 </head>
 
 <body>
@@ -317,7 +320,7 @@
                     </div>
                     <div class="col-md-4 item">
                         <div class="de-image-hover">
-                            <a href="images/products/FramedGlassRobeDoors/IMG_5508.pngg" class="image-popup">
+                            <a href="images/products/FramedGlassRobeDoors/IMG_5508.png" class="image-popup">
                                 <span class="dih-title-wrap">
                                 </span>
                                 <span class="dih-overlay"></span>
@@ -326,7 +329,74 @@
                             </a>
                         </div>
                     </div>
+                    <div class="col-md-4 item">
+                        <div class="de-image-hover">
+                            <video class="img-fluid" muted autoplay loop playsinline>
+                                <source src="images/products/BeveledEdgeMirrors/IMG_7078.MOV" type="video/mp4">
+                            </video>
 
+                            <a href="#video1" class="video-popup">
+                                <div class="dih-overlay"></div>
+                            </a>
+
+                            <div id="video1" class="mfp-hide">
+                                <video width="100%" controls>
+                                    <source src="images/products/BeveledEdgeMirrors/IMG_7078.MOV" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 item">
+                        <div class="de-image-hover" style="position: relative;">
+
+                            <!-- Card Video (autoplay muted loop) -->
+                            <video class="img-fluid" muted autoplay loop playsinline>
+                                <source src="images/products/SemiFramelessShowers/IMG_8479.MOV" type="video/mp4">
+                            </video>
+
+                            <!-- Overlay clickable for popup -->
+                            <a href="#video3" class="video-popup">
+                                <div class="dih-overlay"></div>
+                            </a>
+
+                            <!-- Hidden popup video container -->
+                            <div id="video3" class="mfp-hide">
+                                <div class="video-popup-container">
+                                    <video muted autoplay controls>
+                                        <source src="images/products/SemiFramelessShowers/IMG_8479.MOV"
+                                            type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 item">
+                        <div class="de-image-hover" style="position: relative;">
+
+                            <!-- Card Video (autoplay muted loop) -->
+                            <video class="img-fluid" muted autoplay loop playsinline>
+                                <source src="images/products/FramedGlassRobeDoors/IMG_5506.MOV" type="video/mp4">
+                            </video>
+
+                            <!-- Overlay clickable for popup -->
+                            <a href="#video2" class="video-popup">
+                                <div class="dih-overlay"></div>
+                            </a>
+
+                            <!-- Hidden popup video container -->
+                            <div id="video2" class="mfp-hide">
+                                <div class="video-popup-container">
+                                    <video muted autoplay controls>
+                                        <source src="images/products/FramedGlassRobeDoors/IMG_5506.MOV"
+                                            type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -364,26 +434,40 @@
 
     <!-- Javascript Files
     ================================================== -->
+    <!-- jQuery (FIRST) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Plugins -->
     <script src="js/plugins.js"></script>
+
+    <!-- Jarallax (BEFORE designesia.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jarallax/1.12.8/jarallax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jarallax/1.12.8/jarallax-video.min.js"></script>
+
+    <!-- Theme main JS -->
     <script src="js/designesia.js"></script>
-    <!-- jQuery first -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
-    <!-- Magnific Popup JS -->
-    <script src="path-to/jquery.magnific-popup.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-
-    <!-- Your custom script -->
+    <!-- Video popup script -->
     <script>
         $(document).ready(function () {
             $('.video-popup').magnificPopup({
                 type: 'inline',
                 midClick: true,
                 closeBtnInside: true,
+                mainClass: 'mfp-fade',
+                removalDelay: 300,
+                fixedContentPos: true,
                 callbacks: {
                     open: function () {
                         const video = this.content.find('video')[0];
-                        if (video) video.play();
+                        if (video) {
+                            video.play();
+                            video.muted = true;
+                        }
+
                     },
                     close: function () {
                         const video = this.content.find('video')[0];

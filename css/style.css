@@ -10970,3 +10970,31 @@ header.header-fullwidth {
 canvas {
   display: block;
 }
+/* Overlay for clickable video */
+.dih-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* Popup container with fixed size */
+.video-popup-container {
+  width: 500px; /* desired width */
+  height: 320px; /* desired height */
+  margin: 0 auto;
+}
+
+.video-popup-container video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Optional: adjust Magnific popup content wrapper */
+.mfp-content {
+  max-width: 520px; /* small popup width */
+  margin: 40px auto; /* center vertically */
+}
