@@ -123,12 +123,13 @@
     <div id="content-absolute">
 
         <!-- subheader -->
+        <!-- subheader -->
         <section id="subheader" class="no-bg">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <h4>Luxury Collection</h4>
-                        <h1 id="product"></h1>
+                        <h1 id="p-title"></h1>
                     </div>
                 </div>
             </div>
@@ -243,6 +244,8 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/designesia.js"></script>
+    <script src="backend/api/config.js"></script>
+    <script src="backend/api/firebase-api.js"></script>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const productID = urlParams.get('id');
@@ -603,62 +606,199 @@
             }
         };
 
-        // Get product
-        const product = products[productID];
+        async function loadProduct() {
+            try {
+                // Try database first
+                let product = await FirebaseBackendAPI.getProductById(productID);
 
-        document.getElementById("product").textContent = product.title;
+                // Fallback to hardcoded
+                if (!product) {
+                    product = products[productID];
+                }
 
-        // Insert Title
-        document.getElementById("p-title").innerText = product.title;
+                if (!product) {
+                    document.getElementById('p-title').textContent = 'Product not found';
+                    return;
+                }
 
-        // Insert Overview
-        document.getElementById("p-overview").innerText = product.overview;
+                // Title
+                document.getElementById('p-title').textContent = product.name || product.title || product.product;
 
-        // Insert Specs
-        document.getElementById("p-specs").innerHTML = product.specs
-            .map(item => `<li>${item}</li>`)
-            .join("");
-        // Insert Key Features
-        document.getElementById("p-keyfeatures").innerHTML = product.keyfeatures
-            .map(item => `<li>${item}</li>`)
-            .join("");
+                // Overview
+                document.getElementById('p-overview').textContent = product.overview || product.description || '';
 
-        if (!productID || !products[productID]) {
-            window.location.href = "/404";
+                // Specifications
+                const specsContainer = document.getElementById('p-specs');
+                specsContainer.innerHTML = '';
+                (product.specifications || product.specs || []).forEach(spec => {
+                    const li = document.createElement('li');
+                    li.textContent = spec;
+                    specsContainer.appendChild(li);
+                });
+
+                // Key Features
+                const featuresContainer = document.getElementById('p-keyfeatures');
+                featuresContainer.innerHTML = '';
+                (product.keyFeatures || product.keyfeatures || []).forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    featuresContainer.appendChild(li);
+                });
+
+                // ✅ Insert Carousel Images (YOUR EXACT WORKING CODE)
+                const carousel = $("#carousel-rooms");
+
+                // Destroy if already initialized
+                if (carousel.hasClass("owl-loaded")) {
+                    carousel.trigger("destroy.owl.carousel");
+                }
+
+                carousel.html("");
+
+                (product.images || []).forEach(img => {
+                    carousel.append(`
+                <div class="item">
+                    <div class="picframe">
+                        <a class="image-popup-gallery" href="${img}">
+                            <span class="overlay">
+                                <span class="pf_title"><i class="icon_search"></i></span>
+                            </span>
+                        </a>
+                        <img src="${img}" alt="${product.name || product.title}">
+                    </div>
+                </div>
+            `);
+                });
+
+                // Start carousel with RESPONSIVE settings
+                carousel.owlCarousel({
+                    items: 4,
+                    loop: true,
+                    margin: 10,
+                    nav: false,
+                    dots: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            margin: 5
+                        },
+                        480: {
+                            items: 2,
+                            margin: 10
+                        },
+                        768: {
+                            items: 3,
+                            margin: 10
+                        },
+                        1024: {
+                            items: 4,
+                            margin: 10
+                        }
+                    }
+                });
+
+                // Initialize magnific popup
+                setTimeout(() => {
+                    if (typeof jQuery.fn.magnificPopup !== 'undefined') {
+                        jQuery('.image-popup-gallery').magnificPopup({
+                            type: 'image',
+                            gallery: {
+                                enabled: true
+                            }
+                        });
+                    }
+                }, 100);
+
+            } catch (error) {
+                console.error('Error loading product:', error);
+
+                // Fallback to hardcoded
+                const product = products[productID];
+                if (product) {
+                    document.getElementById('p-title').textContent = product.title || product.product;
+                    document.getElementById('p-overview').textContent = product.overview;
+
+                    const specsContainer = document.getElementById('p-specs');
+                    specsContainer.innerHTML = '';
+                    (product.specs || []).forEach(spec => {
+                        const li = document.createElement('li');
+                        li.textContent = spec;
+                        specsContainer.appendChild(li);
+                    });
+
+                    const featuresContainer = document.getElementById('p-keyfeatures');
+                    featuresContainer.innerHTML = '';
+                    (product.keyfeatures || []).forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        featuresContainer.appendChild(li);
+                    });
+
+                    const carousel = $("#carousel-rooms");
+                    if (carousel.hasClass("owl-loaded")) {
+                        carousel.trigger("destroy.owl.carousel");
+                    }
+                    carousel.html("");
+
+                    (product.images || []).forEach(img => {
+                        carousel.append(`
+                    <div class="item">
+                        <div class="picframe">
+                            <a class="image-popup-gallery" href="${img}">
+                                <span class="overlay">
+                                    <span class="pf_title"><i class="icon_search"></i></span>
+                                </span>
+                            </a>
+                            <img src="${img}" alt="${product.title}">
+                        </div>
+                    </div>
+                `);
+                    });
+
+                    // Start carousel with RESPONSIVE settings
+                    carousel.owlCarousel({
+                        items: 4,
+                        loop: true,
+                        margin: 10,
+                        nav: false,
+                        dots: true,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                margin: 5
+                            },
+                            480: {
+                                items: 2,
+                                margin: 10
+                            },
+                            768: {
+                                items: 3,
+                                margin: 10
+                            },
+                            1024: {
+                                items: 4,
+                                margin: 10
+                            }
+                        }
+                    });
+                    setTimeout(() => {
+                        if (typeof jQuery.fn.magnificPopup !== 'undefined') {
+                            jQuery('.image-popup-gallery').magnificPopup({
+                                type: 'image',
+                                gallery: { enabled: true }
+                            });
+                        }
+                    }, 100);
+                }
+            }
         }
-        // Insert Carousel Images
 
-        const carousel = $("#carousel-rooms");
-
-        // destroy if already initialized
-        if (carousel.hasClass("owl-loaded")) {
-            carousel.trigger("destroy.owl.carousel");
+        // Load when page is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadProduct);
+        } else {
+            loadProduct();
         }
-
-        carousel.html("");
-
-        product.images.forEach(img => {
-            carousel.append(`
-        <div class="item">
-            <div class="picframe">
-                <a class="image-popup-gallery" href="${img}">
-                    <span class="overlay">
-                        <span class="pf_title"><i class="icon_search"></i></span>
-                    </span>
-                </a>
-                <img src="${img}" alt="">
-            </div>
-        </div>
-    `);
-        });
-
-        // 👉 Start carousel
-        carousel.owlCarousel({
-            items: 4,
-            loop: true,
-            nav: false,
-            dots: true
-        });
     </script>
 
 </body>

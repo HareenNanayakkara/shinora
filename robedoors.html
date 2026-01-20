@@ -136,161 +136,10 @@
 
         <section id="section-main" class="no-bg no-top" aria-label="section-menu">
             <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-4">
-                        <div class="de-room modern-card">
-
-                            <div class="d-image">
-                                <!-- <div class="d-label">New Product</div> -->
-
-                                <a href="product-single.html?id=board-robe-door">
-                                    <img src="images/products/BoardRobeDoors/IMG_3573.png" class="img-fluid" alt="">
-                                    <img src="images/products/BoardRobeDoors/IMG_4976.png" class="d-img-hover img-fluid"
-                                        alt="">
-                                </a>
-                            </div>
-
-                            <div class="d-text">
-
-                                <h3>Pure Panel Robe Doors</h3>
-
-                                <div class="details-row">
-
-                                    <!-- LEFT: COLORS -->
-                                    <div class="details-left">
-                                        <span class="details-title">Colors:</span>
-                                        <div class="color-options modern-colors">
-                                            <span class="color-btn polished" data-color="Polished Silver"></span>
-                                            <span class="color-btn black" data-color="Black"></span>
-                                            <span class="color-btn matte" data-color="Matte Silver"></span>
-                                            <span class="color-btn white" data-color="White"></span>
-                                        </div>
-                                    </div>
-
-                                    <!-- RIGHT: SIZE -->
-                                    <div class="details-right">
-                                        <span class="details-title">Size:</span>
-                                        <div class="size-box">
-                                            Custom
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                                <p>
-                                    Durable board robe doors in silver, black, or white for a sleek and modern wardrobe
-                                    look. j</p>
-
-                                <a href="product-single.html?id=board-robe-door" class="btn-line"><span>View
-                                        Product</span></a>
-                            </div>
-                        </div>
+                <div class="row g-4" id="products-container">
+                    <div class="col-12 text-center">
+                        <p>Loading products...</p>
                     </div>
-
-                    <div class="col-lg-4">
-                        <div class="de-room modern-card">
-
-                            <div class="d-image">
-                                <!-- <div class="d-label">New Product</div> -->
-
-                                <a href="product-single.html?id=framed-glass-robe-door">
-                                    <img src="images/products/FramedGlassRobeDoors/IMG_4981.png" class="img-fluid"
-                                        alt="">
-                                    <img src="images/products/FramedGlassRobeDoors/IMG_5504.png"
-                                        class="d-img-hover img-fluid" alt="">
-                                </a>
-                            </div>
-
-                            <div class="d-text">
-                                <div class="text-content">
-                                    <h3>Vista Edge Glass Doors</h3>
-
-                                    <div class="details-row">
-                                        <div class="details-left">
-                                            <span class="details-title">Colors:</span>
-                                            <div class="color-options modern-colors">
-                                                <span class="color-btn polished" data-color="Polished Silver"></span>
-                                                <span class="color-btn black" data-color="Black"></span>
-                                                <span class="color-btn matte" data-color="Matte Silver"></span>
-                                                <span class="color-btn white" data-color="White"></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="details-right">
-                                            <span class="details-title">Size:</span>
-                                            <div class="size-box">
-                                                Custom
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <p>
-                                        Stylish framed glass robe doors that add elegance and visibility to your
-                                        wardrobe.
-                                    </p>
-                                </div>
-
-                                <a href="product-single.html?id=framed-glass-robe-door" class="btn-line"><span>View
-                                        Product</span></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="de-room modern-card">
-
-                            <div class="d-image">
-                                <div class="d-label">New Product</div>
-
-                                <a href="product-single.html?id=frameless-glass-robe-door">
-                                    <img src="images/products/FramelessGlassRobeDoors/IMG_5184.png" class="img-fluid"
-                                        alt="">
-                                    <img src="images/products/FramelessGlassRobeDoors/IMG_5341.png"
-                                        class="d-img-hover img-fluid" alt="">
-                                </a>
-                            </div>
-
-                            <div class="d-text">
-
-                                <h3>Clear View Frameless Robes</h3>
-
-                                <div class="details-row">
-
-                                    <!-- LEFT: COLORS -->
-                                    <div class="details-left">
-                                        <span class="details-title">Colors:</span>
-                                        <div class="color-options modern-colors">
-                                            <span class="color-btn polished" data-color="Polished Silver"></span>
-                                            <span class="color-btn black" data-color="Black"></span>
-                                            <span class="color-btn matte" data-color="Matte Silver"></span>
-                                            <span class="color-btn white" data-color="White"></span>
-                                        </div>
-                                    </div>
-
-                                    <!-- RIGHT: SIZE -->
-                                    <div class="details-right">
-                                        <span class="details-title">Size:</span>
-                                        <div class="size-box">
-                                            Custom
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                                <p>
-                                    Minimalist frameless glass robe doors for a clean, contemporary wardrobe design.
-                                </p>
-
-                                <a href="product-single.html?id=frameless-glass-robe-door" class="btn-line"><span>View
-                                        Product</span></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-
                 </div>
             </div>
         </section>
@@ -328,6 +177,82 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/designesia.js"></script>
+    <script src="backend/api/config.js"></script>
+    <script src="backend/api/firebase-api.js"></script>
+    <script>
+        async function loadProducts() {
+            const container = document.getElementById('products-container');
+
+            try {
+                // Load products from database
+                const products = await FirebaseBackendAPI.getProductsByCategory('robe-doors');
+
+                if (products.length === 0) {
+                    container.innerHTML = '<div class="col-12"><p>No products found</p></div>';
+                    return;
+                }
+
+                container.innerHTML = '';
+
+                products.forEach(product => {
+                    // Create product card
+                    const card = document.createElement('div');
+                    card.className = 'col-lg-4';
+
+                    const img1 = product.images[0] || 'images/placeholder.jpg';
+                    const img2 = product.images[1] || img1;
+
+                    card.innerHTML = `
+                <div class="de-room modern-card">
+                    <div class="d-image">
+                        ${product.isNew ? '<div class="d-label">New Product</div>' : ''}
+                        <a href="product-single.html?id=${product.id}">
+                            <img src="${img1}" class="img-fluid" alt="${product.name}">
+                            <img src="${img2}" class="d-img-hover img-fluid" alt="${product.name}">
+                        </a>
+                    </div>
+                    <div class="d-text">
+                        <h3>${product.name}</h3>
+                        <div class="details-row">
+                            <div class="details-left">
+                                <span class="details-title">Colors:</span>
+                                <div class="color-options modern-colors">
+                                    ${(product.colors || []).map(color => {
+                        const colorClass = color.toLowerCase().includes('silver') ? 'polished' :
+                            color.toLowerCase().includes('black') ? 'black' :
+                                color.toLowerCase().includes('matte') ? 'matte' :
+                                    color.toLowerCase().includes('gold') ? 'gold' : 'polished';
+                        return `<span class="color-btn ${colorClass}" data-color="${color}"></span>`;
+                    }).join('')}
+                                </div>
+                            </div>
+                            <div class="details-right">
+                                <span class="details-title">Size:</span>
+                                <div class="size-box">
+                                    ${(product.sizes || ['Custom'])[0]}
+                                </div>
+                            </div>
+                        </div>
+                        <p>${product.description || product.overview || ''}</p>
+                        <a href="product-single.html?id=${product.id}" class="btn-line">
+                            <span>View Product</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error loading products:', error);
+                container.innerHTML = '<div class="col-12"><p>Error loading products</p></div>';
+            }
+        }
+
+        // Load when page loads
+        window.addEventListener('load', loadProducts);
+    </script>
 </body>
 
 </html>

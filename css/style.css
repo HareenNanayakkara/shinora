@@ -74,6 +74,7 @@ body {
   line-height: 1.8em;
   padding: 0;
   background: #606060;
+  position: relative;
 }
 
 body.de_light,
@@ -6105,9 +6106,11 @@ span.overlay {
 }
 /*single product page images css*/
 #carousel-rooms .picframe {
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
   height: 320px;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 #carousel-rooms .picframe img {
@@ -6117,6 +6120,25 @@ span.overlay {
   object-position: center;
 }
 
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  #carousel-rooms .picframe {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  #carousel-rooms .picframe {
+    height: 250px;
+  }
+}
+
+/* Custom arrow styles */
+.d-arrow-left,
+.d-arrow-right {
+  cursor: pointer;
+  z-index: 10;
+}
 .s2 .overlay-v,
 .s2 .overlay-v:hover {
   background: rgba(40, 40, 40, 0.3);

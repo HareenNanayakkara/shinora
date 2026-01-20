@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shinora Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 260px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-header h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-header p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar-menu i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        /* Top Bar */
+        .topbar {
+            position: fixed;
+            left: 260px;
+            top: 0;
+            right: 0;
+            height: 60px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 999;
+        }
+
+        .topbar-left h3 {
+            color: #333;
+            font-size: 20px;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #dc2626;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            margin-top: 60px;
+            padding: 30px;
+            min-height: calc(100vh - 60px);
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-card h3 {
+            font-size: 36px;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            opacity: 0.9;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="file"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .message.success {
+            background: #10b981;
+            color: white;
+        }
+
+        .message.error {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* Login Page */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            max-width: 90%;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #app {
+            display: none;
+        }
+
+        #app.logged-in {
+            display: block;
+        }
+
+        #login-page {
+            display: flex;
+        }
+
+        #login-page.hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Login Page -->
+    <div id="login-page" class="login-container">
+        <div class="login-box">
+            <h2>🔐 Admin Login</h2>
+            <div id="login-error" class="message error"></div>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <!-- <p style="text-align: center; margin-top: 20px; color: #666; font-size: 12px;">
+                Default: admin / admin123
+            </p> -->
+        </div>
+    </div>
+
+    <!-- Main Admin App -->
+    <div id="app">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>🛍️ Shinora</h2>
+                <p>Admin Dashboard</p>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="menu-link active" data-section="dashboard"><i class="fas fa-home"></i>
+                        Dashboard</a></li>
+                <li><a href="#" class="menu-link" data-section="products"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="#" class="menu-link" data-section="gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="#" class="menu-link" data-section="videos"><i class="fas fa-video"></i> Videos</a></li>
+            </ul>
+        </div>
+
+        <!-- Top Bar -->
+        <div class="topbar">
+            <div class="topbar-left">
+                <h3 id="page-title">Dashboard</h3>
+            </div>
+            <div class="topbar-right">
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <span id="username-display">Admin</span>
+                </div>
+                <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="content-section active">
+                <h2>Dashboard Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 id="total-products">0</h3>
+                        <p>Total Products</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="total-gallery">0</h3>
+                        <p>Gallery Images</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="total-videos">0</h3>
+                        <p>Videos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div id="products" class="content-section">
+                <h2>Manage Products</h2>
+
+                <div id="product-message" class="message"></div>
+
+                <form id="productForm" style="margin-bottom: 40px;">
+                    <input type="hidden" id="editProductId">
+
+                    <div class="form-group">
+                        <label>Product Name *</label>
+                        <input type="text" id="productName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category *</label>
+                        <select id="productCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="showers">Showers</option>
+                            <option value="mirrors">Mirrors</option>
+                            <option value="robe-doors">Robe Doors</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <textarea id="productDesc" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Specifications (one per line)</label>
+                        <textarea id="productSpecs"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Key Features (one per line)</label>
+                        <textarea id="productFeatures"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Colors (comma separated)</label>
+                        <input type="text" id="productColors" placeholder="Polished Silver, Black, Gold">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sizes (comma separated)</label>
+                        <input type="text" id="productSizes" placeholder="2000mm, 1850mm">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Images (Multiple) *</label>
+                        <input type="file" id="productImages" accept="image/*" multiple>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center;">
+                            <input type="checkbox" id="productIsNew" style="width: auto; margin-right: 10px;">
+                            Mark as New Product
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save Product</button>
+                    <button type="button" class="btn" onclick="resetProductForm()">Reset</button>
+                </form>
+
+                <h3>All Products</h3>
+                <div id="productsList" class="products-grid">
+                    <p>Loading products...</p>
+                </div>
+            </div>
+
+            <!-- Gallery Section -->
+            <div id="gallery" class="content-section">
+                <h2>Manage Gallery</h2>
+
+                <div id="gallery-message" class="message"></div>
+
+                <form id="galleryForm" style="margin-bottom: 40px;">
+                    <div class="form-group">
+                        <label>Image Title *</label>
+                        <input type="text" id="galleryTitle" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Image *</label>
+                        <input type="file" id="galleryImage" accept="image/*" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Upload Image</button>
+                </form>
+
+                <h3>Gallery Images</h3>
+                <div id="galleryList" class="products-grid">
+                    <p>Loading gallery...</p>
+                </div>
+            </div>
+
+
+            <!-- Videos Section -->
+            <div id="videos" class="content-section">
+                <h2>Manage Videos</h2>
+
+                <div id="video-message" class="message"></div>
+
+                <form id="videoForm" style="margin-bottom: 40px;">
+                    <div class="form-group">
+                        <label>Video Title *</label>
+                        <input type="text" id="videoTitle" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Video File *</label>
+                        <input type="file" id="videoFile" accept="video/*" required>
+                        <small style="color: #666;">Supported formats: MP4, MOV, AVI (Max 100MB)</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Upload Video</button>
+                </form>
+
+                <h3>All Videos</h3>
+                <div id="videosList" class="products-grid">
+                    <p>Loading videos...</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../api/config.js"></script>
+    <script src="../api/auth.js"></script>
+    <script src="../api/firebase-api.js"></script>
+    <script>
+        // Initialize authentication on page load
+        window.addEventListener('load', async () => {
+            const isLoggedIn = FirebaseAuth.init();
+
+            if (isLoggedIn) {
+                // User already logged in
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('app').classList.add('logged-in');
+                document.getElementById('username-display').textContent = FirebaseAuth.getCurrentUser().username;
+                loadDashboard();
+            }
+        });
+
+        // Login form handler
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const btn = e.target.querySelector('button');
+
+            btn.disabled = true;
+            btn.textContent = 'Logging in...';
+
+            // Use Firebase authentication
+            const loggedIn = await FirebaseAuth.login(username, password);
+
+            if (loggedIn) {
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('app').classList.add('logged-in');
+                document.getElementById('username-display').textContent = username;
+                loadDashboard();
+            } else {
+                const error = document.getElementById('login-error');
+                error.textContent = '❌ Invalid username or password';
+                error.style.display = 'block';
+                setTimeout(() => error.style.display = 'none', 3000);
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Login';
+        });
+
+        function logout() {
+            FirebaseAuth.logout();
+            document.getElementById('app').classList.remove('logged-in');
+            document.getElementById('login-page').classList.remove('hidden');
+            document.getElementById('loginForm').reset();
+        }
+
+        // Refresh session periodically
+        setInterval(() => {
+            if (FirebaseAuth.isAuthenticated()) {
+                FirebaseAuth.refreshSession();
+            } else {
+                logout();
+                alert('Session expired. Please login again.');
+            }
+        }, 5 * 60 * 1000); // Every 5 minutes
+
+        // Update menu navigation to load videos
+        document.querySelectorAll('.menu-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const section = link.dataset.section;
+
+                document.querySelectorAll('.menu-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                document.getElementById(section).classList.add('active');
+
+                const titles = {
+                    'dashboard': 'Dashboard',
+                    'products': 'Products',
+                    'gallery': 'Gallery',
+                    'videos': 'Videos'
+                };
+                document.getElementById('page-title').textContent = titles[section];
+
+                if (section === 'dashboard') loadDashboard();
+                if (section === 'products') loadProducts();
+                if (section === 'gallery') loadGallery();
+                if (section === 'videos') loadVideos(); // Add this line
+            });
+        });
+
+        // Update loadDashboard to include videos
+        async function loadDashboard() {
+            const products = await FirebaseBackendAPI.getAllProducts();
+            const gallery = await FirebaseBackendAPI.getAllGalleryImages();
+            const videos = await FirebaseBackendAPI.getAllVideos();
+
+            document.getElementById('total-products').textContent = products.length;
+            document.getElementById('total-gallery').textContent = gallery.length;
+            document.getElementById('total-videos').textContent = videos.length;
+        }
+
+        // Upload to Cloudinary (supports both images and videos)
+        async function uploadToCloudinary(file, resourceType = 'image') {
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', BACKEND_CONFIG.cloudinary.uploadPreset);
+
+            const response = await fetch(
+                `https://api.cloudinary.com/v1_1/${BACKEND_CONFIG.cloudinary.cloudName}/${resourceType}/upload`,
+                { method: 'POST', body: formData }
+            );
+            return (await response.json()).secure_url;
+        }
+
+        // Video Form Submit
+        document.getElementById('videoForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.disabled = true;
+            btn.textContent = 'Uploading...';
+
+            try {
+                const file = document.getElementById('videoFile').files[0];
+
+                // Check file size (100MB limit)
+                if (file.size > 100 * 1024 * 1024) {
+                    throw new Error('Video file too large. Maximum size is 100MB');
+                }
+
+                showMessage('video-message', 'Uploading video... This may take a while', 'success');
+                const videoUrl = await uploadToCloudinary(file, 'video');
+
+                await FirebaseBackendAPI.addVideo({
+                    title: document.getElementById('videoTitle').value,
+                    videoUrl: videoUrl,
+                    thumbnail: videoUrl.replace(/\.(mp4|mov|avi)$/i, '.jpg') // Cloudinary auto-generates thumbnails
+                });
+
+                showMessage('video-message', '✅ Video uploaded successfully!', 'success');
+                document.getElementById('videoForm').reset();
+                loadVideos();
+                loadDashboard();
+            } catch (error) {
+                showMessage('video-message', '❌ Error: ' + error.message, 'error');
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Upload Video';
+        });
+
+        // Load Videos
+        async function loadVideos() {
+            const container = document.getElementById('videosList');
+            container.innerHTML = '<p>Loading...</p>';
+
+            const videos = await FirebaseBackendAPI.getAllVideos();
+            container.innerHTML = '';
+
+            videos.forEach(vid => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+            <video controls style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                <source src="${vid.videoUrl}" type="video/mp4">
+            </video>
+            <h3>${vid.title}</h3>
+            <button class="btn btn-danger" onclick="deleteVideo('${vid.id}', '${vid.title}')">Delete</button>
+        `;
+                container.appendChild(card);
+            });
+        }
+
+        // Delete Video
+        async function deleteVideo(id, title) {
+            if (confirm(`Delete video "${title}"?`)) {
+                await FirebaseBackendAPI.deleteVideo(id);
+                showMessage('video-message', '✅ Deleted successfully', 'success');
+                loadVideos();
+                loadDashboard();
+            }
+        }
+
+        // Product Form Submit
+        document.getElementById('productForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Saving...';
+
+            try {
+                const files = document.getElementById('productImages').files;
+                let imageUrls = [];
+
+                for (let file of files) {
+                    showMessage('product-message', `Uploading image ${imageUrls.length + 1}...`, 'success');
+                    const url = await uploadToCloudinary(file);
+                    imageUrls.push(url);
+                }
+
+                const categoryNames = { 'showers': 'Showers', 'mirrors': 'Mirrors', 'robe-doors': 'Robe Doors' };
+                const cat = document.getElementById('productCategory').value;
+
+                const productData = {
+                    name: document.getElementById('productName').value,
+                    slug: document.getElementById('productName').value.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+                    category: cat,
+                    categoryName: categoryNames[cat],
+                    description: document.getElementById('productDesc').value,
+                    overview: document.getElementById('productDesc').value,
+                    specifications: document.getElementById('productSpecs').value.split('\n').filter(s => s.trim()),
+                    keyFeatures: document.getElementById('productFeatures').value.split('\n').filter(s => s.trim()),
+                    colors: document.getElementById('productColors').value.split(',').map(s => s.trim()).filter(s => s),
+                    sizes: document.getElementById('productSizes').value.split(',').map(s => s.trim()).filter(s => s),
+                    images: imageUrls,
+                    thumbnail: imageUrls[0],
+                    isNew: document.getElementById('productIsNew').checked,
+                    price: 0
+                };
+
+                await FirebaseBackendAPI.addProduct(productData);
+                showMessage('product-message', '✅ Product added successfully!', 'success');
+                resetProductForm();
+                loadProducts();
+                loadDashboard();
+            } catch (error) {
+                showMessage('product-message', '❌ Error: ' + error.message, 'error');
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Save Product';
+        });
+
+        function resetProductForm() {
+            document.getElementById('productForm').reset();
+        }
+
+        async function loadProducts() {
+            const container = document.getElementById('productsList');
+            container.innerHTML = '<p>Loading...</p>';
+
+            const products = await FirebaseBackendAPI.getAllProducts();
+            container.innerHTML = '';
+
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${p.images[0] || ''}" alt="${p.name}">
+                    <h3>${p.name}</h3>
+                    ${p.isNew ? '<p><strong>🆕 New</strong></p>' : ''}
+                    <p><strong>Category:</strong> ${p.categoryName}</p>
+                    <p style="font-size: 12px;">${(p.description || '').substring(0, 80)}...</p>
+                    <button class="btn btn-danger" onclick="deleteProduct('${p.id}', '${p.name}')">Delete</button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        async function deleteProduct(id, name) {
+            if (confirm(`Delete "${name}"?`)) {
+                await FirebaseBackendAPI.deleteProduct(id);
+                showMessage('product-message', '✅ Deleted successfully', 'success');
+                loadProducts();
+                loadDashboard();
+            }
+        }
+
+        // Gallery Form
+        document.getElementById('galleryForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.disabled = true;
+            btn.textContent = 'Uploading...';
+
+            try {
+                const file = document.getElementById('galleryImage').files[0];
+                const imageUrl = await uploadToCloudinary(file);
+
+                await FirebaseBackendAPI.addGalleryImage({
+                    title: document.getElementById('galleryTitle').value,
+                    imageUrl: imageUrl
+                });
+
+                showMessage('gallery-message', '✅ Image uploaded!', 'success');
+                document.getElementById('galleryForm').reset();
+                loadGallery();
+                loadDashboard();
+            } catch (error) {
+                showMessage('gallery-message', '❌ Error: ' + error.message, 'error');
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Upload Image';
+        });
+
+        async function loadGallery() {
+            const container = document.getElementById('galleryList');
+            container.innerHTML = '<p>Loading...</p>';
+
+            const images = await FirebaseBackendAPI.getAllGalleryImages();
+            container.innerHTML = '';
+
+            images.forEach(img => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${img.imageUrl}" alt="${img.title}">
+                    <h3>${img.title}</h3>
+                    <button class="btn btn-danger" onclick="deleteGallery('${img.id}', '${img.title}')">Delete</button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        async function deleteGallery(id, title) {
+            if (confirm(`Delete "${title}"?`)) {
+                await FirebaseBackendAPI.deleteGalleryImage(id);
+                showMessage('gallery-message', '✅ Deleted successfully', 'success');
+                loadGallery();
+                loadDashboard();
+            }
+        }
+
+        function showMessage(id, text, type) {
+            const msg = document.getElementById(id);
+            msg.textContent = text;
+            msg.className = `message ${type}`;
+            msg.style.display = 'block';
+            setTimeout(() => msg.style.display = 'none', 3000);
+        }
+    </script>
+</body>
+
+</html>

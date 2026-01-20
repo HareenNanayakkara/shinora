@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Initial Users</title>
+</head>
+
+<body>
+    <h1>Create Initial Admin Users</h1>
+    <div id="result"></div>
+
+    <script src="../api/config.js"></script>
+    <script src="../api/auth.js"></script>
+    <script>
+        async function createInitialUsers() {
+            const result = document.getElementById('result');
+
+            try {
+                // Create first admin user
+                const user1 = await FirebaseAuth.createUser({
+                    username: 'admin',
+                    password: 'Shinora@100',
+                    email: 'shinoraaustralia@gmail.com',
+                    role: 'admin'
+                });
+                result.innerHTML += `<p>✅ Created user: ${user1.username}</p>`;
+
+                // Create second admin user
+                const user2 = await FirebaseAuth.createUser({
+                    username: 'manager',
+                    password: 'shinora@1998',
+                    email: 'manager@shinora.com',
+                    role: 'admin'
+                });
+                result.innerHTML += `<p>✅ Created user: ${user2.username}</p>`;
+
+                result.innerHTML += '<p><strong>Users created successfully! You can now delete this file.</strong></p>';
+            } catch (error) {
+                result.innerHTML += `<p>❌ Error: ${error.message}</p>`;
+            }
+        }
+
+        // Run on page load
+        createInitialUsers();
+    </script>
+</body>
+
+</html>
