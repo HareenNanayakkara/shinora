@@ -1,9 +1,9 @@
 const BACKEND_CONFIG = {
   firebase: {
-    projectId: "shinora", // ← Put YOUR project ID here
+    projectId: "shinora-australia", // ← Put YOUR project ID here
   },
   cloudinary: {
-    cloudName: "isinidev", // ← Put YOUR cloud name here
+    cloudName: "dq8fvlrqz", // ← Put YOUR cloud name here
     uploadPreset: "shinora", // ← Put YOUR preset name here
   },
 };
